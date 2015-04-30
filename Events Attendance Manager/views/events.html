@@ -1,0 +1,32 @@
+<div data-role="view" data-title="Lista Eventi" data-layout="main" data-model="app.eventsService.viewModel">
+    <script src="scripts/events.js"></script>
+    
+    <div id="tabstrip-events">
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label>
+                    <div>Solo sottoscritti:</div>
+                    <div class="align-right-70"><input id="events-switch" data-role="switch" data-change="app.eventsService.viewModel.filterlist" data-bind="checked: false" /></div>
+                </label>
+            </li>
+        </ul>
+        <ul data-role="listview" data-style="inset"
+            data-bind="source: eventDataSource"
+            data-template="events-list-template">
+        </ul>
+    </div>
+    
+    <!--events list template-->
+    <script id="events-list-template" type="text/x-kendo-tmpl">
+        <div class="w-item-template">
+            <a href="views/event-single.html?eventid=#:id_esi#" data-cardId="#:id_esi#" data-role="listview-link">
+                <span class="km-icon km-notext # if (expired) { # km-stop # } else { # km-recents # } # w-icon"></span>
+                <span class="km-icon km-notext # if (subscribed) { # km-favorites # } else { # km-trash # } # w-icon"></span>
+                <div class="w-temp">
+                    <span>${data_e}</span> -
+                    <span>${descr}</span>
+                </div>
+            </a>
+        </div>
+    </script>
+</div>

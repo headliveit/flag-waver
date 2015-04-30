@@ -1,0 +1,61 @@
+<div data-role="view" data-title="Lista Eventi" data-layout="main" data-model="app.eventsSingleService.viewModel" data-show="app.singleEventSetValue">
+    <script src="scripts/event-single.js"></script>
+    
+    <div id="tabstrip-event-single">
+        <div>
+            <h3 class="event-single-title" data-bind="text: item.descr"></h3>
+        </div>
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label>
+                    <div>Luogo:</div>
+                    <div class="align-right-70"><span data-bind="text: item.luogo"></span></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div>Ritrovo:</div>
+                    <div class="full"><span data-bind="text: item.ritrovo"></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div>Ora Ritrovo:</div>
+                    <div class="align-right-70"><span data-bind="text: item.ora_conv"></span></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div>Ora Evento:</div>
+                    <div class="align-right-70"><span data-bind="text: item.ora_esib"></span></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div>Tamburi:</div>
+                    <div class="align-right-70"><span data-bind="text: item.tamburi"></span></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div>Sbandieratori:</div>
+                    <div class="align-right-70"><span data-bind="text: item.sbandieratori"></span></div>
+                </label>
+            </li>
+            <li>
+                <div data-bind="style: {color: item.expiredcss}"><span data-bind="text: item.expiredtxt"></span></div>
+            </li>
+            <li>
+                <label>
+                    <div>Partecipazione:</div>
+                    <div class="align-right-70">
+                        <input id="subscription-switch" 
+                               data-role="switch" 
+                               data-bind="checked: item.subscribed, enabled: item.subenabled"
+                               data-change="app.eventsSingleService.viewModel.changeSubscription"/>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

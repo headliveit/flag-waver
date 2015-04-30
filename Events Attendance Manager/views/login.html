@@ -1,0 +1,53 @@
+<div data-role="view" data-title="Accedi" data-layout="main" data-model="app.loginService.viewModel" data-init="app.loginService.viewModel.onLoad">
+        <script src="scripts/login.js"></script>
+        <div class="logo-image"></div>
+        <div data-bind="visible: isLoggedIn">
+            <h3>Benvenuto, <span data-bind="text: userfullname"></span>!</h3>
+            <ul data-role="listview" data-style="inset" id="logged-on-data">
+                <li>
+                    <label>
+                        <div>Eventi in Programma:</div>
+                        <div class="align-right-40"><span data-bind="text: evepro"></span></div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <div>Partecipazioni:</div>
+                        <div class="align-right-40"><span data-bind="text: parpro"></span></div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <div>Eventi Totali:</div>
+                        <div class="align-right-40"><span data-bind="text: evetot"></span></div>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <div>Partecipazioni Totali:</div>
+                        <div class="align-right-40"><span data-bind="text: partot"></span></div>
+                    </label>
+                </li>
+            </ul>
+            <input id="logout" type="submit" data-role="button" data-bind="click: onLogout, visible: isLoggedIn" value="Logout" class="login-button" />
+        </div>
+        <form data-bind="events: { keyup: checkEnter }">
+            <h3 data-bind="invisible: isLoggedIn">Inserisci le credenziali:</h3>
+            <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
+                <li>
+                    <label>
+                        <div>Username</div>
+                        <input type="text" data-bind="value: username" />
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <div>Password</div>
+                        <input type="password" data-bind="value: password" />
+                    </label>
+                </li>
+            </ul>
+            <input id="login" type="submit" data-role="button" data-bind="click: onLogin, invisible: isLoggedIn" value="Login" class="login-button" />
+        </form>
+    
+</div>

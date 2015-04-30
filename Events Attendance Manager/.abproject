@@ -5,7 +5,7 @@
   "AppIdentifier": "com.telerik.EventsAttendanceManager",
   "DisplayName": "Events Attendance Manager",
   "Author": "",
-  "Description": "",
+  "Description": "Events Attendance Manager",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
