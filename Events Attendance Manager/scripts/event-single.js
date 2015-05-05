@@ -24,7 +24,30 @@
         },
         
         changeSubscription: function(e) {
-            console.log(e.checked);
+            var eventUIID = app.eventsSingleService.viewModel.event_id,
+            userUIID = app.loginService.viewModel.UIID,
+            jsonUrlToLoad = "http://www.bandieraidegliuffizi.it/api/events/set.php?u="+userUIID+"&e="+eventUIID+"&a="+e.checked,
+            dataSource,
+            item;
+            
+            dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: jsonUrlToLoad,
+                        dataType: "json"
+                    }
+                }
+            });
+            
+            dataSource.fetch(function() {
+  				item = dataSource.data()[0];
+                if(!item.success) {
+                	navigator.notification.alert("Si sono verificati degli errori prova più tardi!",
+                    	function () { }, "Disponibilità fallita", 'OK');
+
+                	return;
+            	}
+            })   
         }
         
     });

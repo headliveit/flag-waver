@@ -24,8 +24,8 @@
                 },
                 schema: {
     				model: { id: "id_esi" }
-                }
-                
+                },
+                pageSize: 30
             });
             
             that.set("eventDataSource", dataSource);

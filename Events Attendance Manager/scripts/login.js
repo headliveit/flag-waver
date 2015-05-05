@@ -47,11 +47,7 @@
                         url: jsonUrlToLoad,
                         dataType: "json"
                     }
-                },
-                schema: {
-    				model: { id: "id_esi" }
                 }
-                
             });
             
             dataSource.fetch(function() {
@@ -67,8 +63,14 @@
                     that.set("evetot", authitem.evetot);
                     that.set("partot", authitem.partot);
                     that.set("UIID", authitem.UIID);
+                    
+                    $('#hide-menu').css("display","table");
+            	} else {
+                    navigator.notification.alert("Le credenziali inserite non sono corrette!",
+                    	function () { }, "Login fallita", 'OK');
+
+                	return;
             	}
-                
 			});
         },
 
@@ -85,6 +87,8 @@
 
             that.clearForm();
             that.set("isLoggedIn", false);
+            
+            $('#hide-menu').css("display","none");
         },
 
         clearForm: function () {

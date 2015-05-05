@@ -10,7 +10,7 @@
                 </label>
             </li>
         </ul>
-        <ul data-role="listview" data-style="inset"
+        <ul data-role="listview" data-style="inset" id="events-listview"
             data-bind="source: eventDataSource"
             data-template="events-list-template">
         </ul>
@@ -18,10 +18,9 @@
     
     <!--events list template-->
     <script id="events-list-template" type="text/x-kendo-tmpl">
-        <div class="w-item-template">
+        <div class="w-item-template# if (expired) { # cs-expired # } else { # cs-notexpired # } #">
             <a href="views/event-single.html?eventid=#:id_esi#" data-cardId="#:id_esi#" data-role="listview-link">
-                <span class="km-icon km-notext # if (expired) { # km-stop # } else { # km-recents # } # w-icon"></span>
-                <span class="km-icon km-notext # if (subscribed) { # km-favorites # } else { # km-trash # } # w-icon"></span>
+                <span class="km-icon km-notext # if (subscribed) { # km-favorites # } else { # km-more # } # w-icon"></span>
                 <div class="w-temp">
                     <span>${data_e}</span> -
                     <span>${descr}</span>

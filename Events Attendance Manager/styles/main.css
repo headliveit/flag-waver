@@ -151,13 +151,12 @@ body, html {
 }
 .w-item-template .w-temp {
     float: right;
-    width: 80%;
+    width: 87%;
 }
 .w-item-template .w-temp > span:first-of-type {
-    opacity: 0.5;
 }
 #tabstrip-events .km-list>li {
-    padding: .7em .4em;
+    padding: 1.2em .4em;
 }
 #tabstrip-events .w-icon {
     margin: 0 .2em;
@@ -345,4 +344,24 @@ body, html {
     float: left;
     width: 70%;
     text-align: right;
+}
+#hide-menu {
+    display:none;
+}
+#tabstrip-events .km-list>li {
+    padding: .7em .4em;
+}
+#events-listview >li {
+    padding:0 !important;
+}
+.w-item-template {
+    padding: 1.2em .4em;
+}
+.w-item-template.cs-notexpired {
+    background-color:rgba(204,255,204,.3);
+}
+.w-item-template:before, .w-item-template:after {
+    content:"";
+    display:block;
+    clear:all;
 }
