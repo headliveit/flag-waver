@@ -2,25 +2,30 @@
   "ProjectName": "Events Attendance Manager",
   "ProjectGuid": "411a74c5-c0cc-4690-b1b5-0692c6dccfeb",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.EventsAttendanceManager",
-  "DisplayName": "Events Attendance Manager",
-  "Author": "",
-  "Description": "Events Attendance Manager",
+  "AppIdentifier": "it.headlive.bandieraidegliuffizi",
+  "DisplayName": "Bandierai degli Uffizi - Uscite",
+  "Author": "Bandierai degli Uffizi",
+  "Description": "Applicazione  per confermare la presenza alle uscite dei bandierai degli Uffizi",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
     "2"
   ],
-  "iOSBackgroundMode": [],
+  "iOSBackgroundMode": [
+    "audio"
+  ],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "FrameworkVersion": "3.5.0",
-  "AndroidPermissions": [],
-  "DeviceOrientations": [
-    "Portrait",
-    "Landscape"
+  "AndroidPermissions": [
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.ACCESS_WIFI_STATE",
+    "android.permission.INTERNET"
   ],
-  "AndroidHardwareAcceleration": "false",
+  "DeviceOrientations": [
+    "Portrait"
+  ],
+  "AndroidHardwareAcceleration": "False",
   "iOSStatusBarStyle": "Default",
   "Framework": "Cordova",
   "WP8TileTitle": "",

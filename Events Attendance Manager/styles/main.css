@@ -154,6 +154,7 @@ body, html {
     width: 87%;
 }
 .w-item-template .w-temp > span:first-of-type {
+    color: #bd0006;
 }
 #tabstrip-events .km-list>li {
     padding: 1.2em .4em;
@@ -167,8 +168,7 @@ body, html {
 .w-item-template .km-trash{
     color: red;
 }
-.w-item-template .km-favorites{
-    color: blue;
+.w-item-template .km-contacts{
 }
 .w-item-template .km-recents{
     color: green;
@@ -358,7 +358,8 @@ body, html {
     padding: 1.2em .4em;
 }
 .w-item-template.cs-notexpired {
-    background-color:rgba(204,255,204,.3);
+      background-color: rgba(88,88,86,.8);
+  		color: #fff;
 }
 .w-item-template:before, .w-item-template:after {
     content:"";
