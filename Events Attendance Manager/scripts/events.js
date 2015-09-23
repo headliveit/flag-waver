@@ -12,18 +12,19 @@
 
             kendo.data.ObservableObject.fn.init.apply(that, []);
             
-            var user = app.loginService.viewModel.UIID;
-            jsonUrlToLoad = "http://www.bandieraidegliuffizi.it/api/events/get.php?u="+user;
+            var user = app.loginService.viewModel.username;
+            var psw = app.loginService.viewModel.password_tomd5;
+            jsonUrlToLoad = "http://www.bandieraidegliuffizi.it/api/exhibits/";
 
             dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
-                        url: jsonUrlToLoad,
+                        url: jsonUrlToLoad+"get.php?u="+user+"&g="+psw,
                         dataType: "json"
                     }
                 },
                 schema: {
-    				model: { id: "id_esi" }
+                    model: { id: "id_esi" }
                 },
                 pageSize: 30
             });
@@ -41,7 +42,7 @@
             } else {
                 app.eventsService.viewModel.eventDataSource.filter({});
             }
-    	}
+        }
     });
 
     app.eventsService = {

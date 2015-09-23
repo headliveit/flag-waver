@@ -24,6 +24,9 @@ body, html {
     font-size: 1em;
 }
 
+.hiding-button, .km-flat .km-tabstrip .hiding-button.km-button {
+    display: none;
+}
 /* IMAGE STYLES*/
 .img {
     background-image: url(../styles/images/appbuilder.png);
@@ -192,7 +195,11 @@ body, html {
     margin: 0 auto;
     width: 100%;
 }
-
+.nodeco {
+    text-decoration:none;
+    font-size:1.5em !important;
+    color: #10C4B2 !important;
+}
 /* DEVICE SPECIFIC STYLES*/
 #skin-change {
     position: absolute;
@@ -323,7 +330,9 @@ body, html {
         background-size: 100%;
     }
 }
-
+#eventForm .k-textbox, #eventForm input, #eventForm select:not([multiple]) {
+    width: 75%;
+}
 /* CUSTOM */
 #logged-on-data label div {
     float: left;
@@ -335,10 +344,17 @@ body, html {
     width: 40%;
     text-align: right;
 }
+#tabstrip-event-single {
+    margin-bottom:20px;
+    padding-bottom:30px;
+}
 #tabstrip-event-single label div:not(.full) {
     float: left;
     width: 30%;
     text-align: left;
+}
+#tabstrip-event-single .full {
+    padding-bottom: 10px;
 }
 #tabstrip-event-single label div.align-right-70 {
     float: left;
@@ -354,6 +370,10 @@ body, html {
 #events-listview >li {
     padding:0 !important;
 }
+.km-listview-wrapper {
+ 	float:none !important;
+    width:100% !important;
+}
 .w-item-template {
     padding: 1.2em .4em;
 }
@@ -361,8 +381,27 @@ body, html {
       background-color: rgba(88,88,86,.8);
   		color: #fff;
 }
-.w-item-template:before, .w-item-template:after {
+.w-item-template:before, .w-item-template:after, .full:before, .full:after {
     content:"";
     display:block;
     clear:all;
+    clear:both;
 }
+.km-list textarea {
+    width: 80% !important;
+}
+.k-invalid {
+    background: red !important;
+    color: white !important;
+}
+.k-tooltip-validation {
+    display: none !important;
+}
+.k-textbox:focus, .k-autocomplete.k-state-active, .k-picker-wrap.k-state-active, .k-numeric-wrap.k-state-active, .k-dropdown-wrap.k-state-active, .k-multiselect.k-header.k-state-active, select:not([multiple]):focus, textarea:focus {
+    background-color: #FFF;
+    background-image: none;
+    background-position: 50% 50%;
+    border-color: #F5F5F5;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2), 0px 2px 3px rgba(0, 0, 0, 0.05);
+}
+.w-item-template .km-listview-link:after {top:90%;margin-top:0;}

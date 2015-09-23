@@ -1,4 +1,4 @@
-<div data-role="view" data-title="Lista Eventi" data-layout="main" data-model="app.eventsSingleService.viewModel" data-show="app.singleEventSetValue">
+<div data-role="view" data-title="Evento" data-layout="main" data-model="app.eventsSingleService.viewModel" data-show="app.singleEventSetValue">
     <script src="scripts/event-single.js"></script>
     
     <div id="tabstrip-event-single">
@@ -7,6 +7,15 @@
         </div>
         <ul data-role="listview" data-style="inset">
             <li>
+                <a data-bind="attr: { href: item.editlink }" data-role="listview-link">edit</a>
+            </li>
+            <li>
+                <label>
+                    <div>Data:</div>
+                    <div class="align-right-70"><span data-bind="text: item.data_e"></span></div>
+                </label>
+            </li>
+            <li>
                 <label>
                     <div>Luogo:</div>
                     <div class="align-right-70"><span data-bind="text: item.luogo"></span></div>
@@ -14,7 +23,10 @@
             </li>
             <li>
                 <label>
-                    <div>Ritrovo:</div>
+                    <div class="full">
+                    	<div>Ritrovo:</div>    
+                        <div class="align-right-70"><a data-bind="attr: { href: item.maptext }" class="km-icon km-notext km-globe nodeco"></a></div>
+                    </div>
                     <div class="full"><span data-bind="text: item.ritrovo"></div>
                 </label>
             </li>
@@ -39,7 +51,7 @@
             <li>
                 <label>
                     <div>Sbandieratori:</div>
-                    <div class="align-right-70"><span data-bind="text: item.sbandieratori"></span></div>
+                    <div class="align-right-70"><span data-bind="text: item.b_tot"></span></div>
                 </label>
             </li>
             <li>
@@ -56,6 +68,33 @@
                     </div>
                 </label>
             </li>
+            <li>
+                <label>
+                    <div class="full">Note:</div>
+                    <div class="full">
+                        <span data-bind="text: item.note"></span>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div class="full">Partecipanti:</div>
+                    <div class="full">
+                        <ul data-role="listview" data-style="inset" id="subscribers-listview"
+                            data-bind="source: item.subscribers"
+                            data-template="subscribers-list-template"
+                            data-pull-to-refresh="false">
+                        </ul>
+                    </div>
+                </label>
+            </li>
         </ul>
     </div>
+    
+    <!--subscribers list template-->
+    <script id="subscribers-list-template" type="text/x-kendo-tmpl">
+        <span>
+            ${nome} ${cognome}
+        </span>
+    </script>
 </div>

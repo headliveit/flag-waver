@@ -1,0 +1,120 @@
+<div data-role="view" data-title="Inserisci Evento" data-layout="main" data-model="app.eventInsertService.viewModel" data-show="app.insertEventSet">
+    <script src="scripts/event-insert.js"></script>
+    
+    <div id="tabstrip-event-single">
+         <form id="eventForm">
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label>Titolo:
+                    	<input name="descr" required data-bind="value: item.descr" type="text" class="k-textbox" placeholder="Titolo" />
+                    </label>
+                </li>
+                <li>
+                    <label>Data:
+                    	<input type="date" required name="data_db" data-bind="value: item.data_db" type="text" placeholder="Data" />
+                    </label>
+                </li>
+                <li>
+                    <label>Ora:
+                    	<input name="ora_esib" required data-bind="value: item.ora_esib" type="time" placeholder="Data" />
+                    </label>
+                </li>
+                <li>
+                    <label>Tipologia:
+                        <select name="id_tip" data-bind="value: item.id_tip">
+				  			<option value="1">Ufficiale</option>
+		  		  			<option value="2">Autorizzata</option>
+		  		  			<option value="3">Black</option>
+		  		  			<option value="4">Informale</option>
+		  		  			<option value="5">Allenamento</option>
+                        </select>
+                    </label>
+                </li>
+                <li>
+                    <label>Indirizzo:
+                    	<input name="luogo" required data-bind="value: item.luogo" type="text" class="k-textbox" placeholder="Luogo" />
+                    </label>
+                </li>
+                <li>
+                    <label>Provincia:
+                        <input name="prov" required data-bind="value: item.prov" type="text" class="k-textbox" placeholder="Provincia" />
+                    </label>
+                </li>
+                <li>
+                    <label>Nazione:
+                        <input name="nazione" required data-bind="value: item.nazione" type="text" class="k-textbox" placeholder="Nazione" />
+                    </label>
+                </li>
+                <li>
+                    <label>Ritrovo:
+                        <input name="ritrovo" required data-bind="value: item.ritrovo" type="text" class="k-textbox" placeholder="Ritrovo" />
+                    </label>
+                </li>
+                <li>
+                    <label>Ora Ritr.:
+                        <input name="ora_conv" required data-bind="value: item.ora_conv" type="time" class="k-textbox" placeholder="Nazione" />
+                    </label>
+                </li>
+                <li>
+                    <label>B. Blu:
+                        <input name="b_blu" data-bind="value: item.b_blu" type="number" class="k-textbox" placeholder="B. Blu" />
+                    </label>
+                </li>
+                <li>
+                    <label>B. Rossi:
+                    	<input name="b_rossi" data-bind="value: item.b_rossi" type="number" class="k-textbox" placeholder="B. Rossi" />
+                    </label>
+                </li>
+                <li>
+                    <label>Tamburi:
+                    	<input name="tamburi" data-bind="value: item.tamburi" type="number" class="k-textbox" placeholder="Tamburi" />
+                    </label>
+                </li>
+                <li>
+                    <label>Altri:
+                    	<input name="altri" data-bind="value: item.altri" type="number" class="k-textbox" placeholder="Altri" />
+                    </label>
+                </li>
+                <li>
+                    <label>Durata:
+                    	<input name="gg_durata" data-bind="value: item.gg_durata" type="number" class="k-textbox" placeholder="Durata" />
+                    </label>
+                </li>
+                <li>
+                    <label>Mezzo:
+                    	<input name="mezzo" required data-bind="value: item.mezzo" type="text" class="k-textbox" placeholder="Mezzo" />
+                    </label>
+                </li>
+                <li>
+                    <label>Rendita:
+                    	<input name="rendita" data-bind="value: item.rendita" type="number" class="k-textbox" placeholder="Rendita" />
+                    </label>
+                </li>
+                <li>
+                    <label>Note:
+                        <textarea name="note" data-bind="value: item.note" type="text" placeholder="Note"></textarea>
+                    </label>
+                </li>
+                <li>
+                    <label>Referente:
+                        <input name="referente" data-bind="value: item.referente" type="text" class="k-textbox" placeholder="Referente" />
+                    </label>
+                </li>
+                <li>
+                    <label>Email:
+                        <input name="email" data-bind="value: item.email" type="email" class="k-textbox" placeholder="Email" />
+                    </label>
+                </li>
+                <li>
+                    <label>Telefono:
+                        <input name="tel" data-bind="value: item.tel" type="tel" class="k-textbox" placeholder="Telefono" />
+                    </label>
+                </li>
+                <li style="display:table;width:100%;">
+                    <a  style="display:table-cell;" data-role="button" data-click="app.eventInsertService.viewModel.cancel">Cancella</a>
+                	<a  style="display:table-cell;" class="primary" data-role="button" data-click="app.eventInsertService.viewModel.submit">Conferma</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>

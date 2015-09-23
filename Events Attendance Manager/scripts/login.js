@@ -8,6 +8,7 @@
         username: "",
         userfullname: "",
         password: "",
+        password_tomd5: "",
         evepro: "",
         parpro: "",
         evetot: "",
@@ -30,6 +31,7 @@
                 dataSource,
                 jsonUrlToLoad,
                 authitem,
+                password_tomd5,
                 username = that.get("username").trim(),
                 password = that.get("password").trim();
 
@@ -39,7 +41,9 @@
 
                 return;
             }
-            jsonUrlToLoad = "http://www.bandieraidegliuffizi.it/api/events/auth.php?u="+username+"&p="+CryptoJS.MD5(password);
+            
+            password_tomd5 = CryptoJS.MD5(password + Math.floor(new Date(new Date().setHours(0,0,0,0)).getTime()/1000));
+            jsonUrlToLoad = "http://www.bandieraidegliuffizi.it/api/users/auth.php?u="+username+"&p="+password_tomd5;
             
             dataSource = new kendo.data.DataSource({
                 transport: {
@@ -57,14 +61,19 @@
                     localStorage.setItem("bdu-username", username);
                     localStorage.setItem("bdu-password", password);
                     that.set("isLoggedIn", true);
+                    that.set("password_tomd5", password_tomd5);
 					that.set("userfullname", authitem.name);
                     that.set("evepro", authitem.evepro);
                     that.set("parpro", authitem.parpro);
-                    that.set("evetot", authitem.evetot);
+                    that.set("evetot",authitem.evetot);
                     that.set("partot", authitem.partot);
                     that.set("UIID", authitem.UIID);
                     
                     $('#hide-menu').css("display","table");
+                    
+                    if(authitem.admin)
+						$(".hiding-button").css("display","table-cell");
+
             	} else {
                     navigator.notification.alert("Le credenziali inserite non sono corrette!",
                     	function () { }, "Login fallita", 'OK');

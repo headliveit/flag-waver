@@ -6,15 +6,13 @@
   "DisplayName": "Bandierai degli Uffizi - Uscite",
   "Author": "Bandierai degli Uffizi",
   "Description": "Applicazione  per confermare la presenza alle uscite dei bandierai degli Uffizi",
-  "BundleVersion": "1.0",
+  "BundleVersion": "1.1",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
     "2"
   ],
-  "iOSBackgroundMode": [
-    "audio"
-  ],
+  "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "FrameworkVersion": "3.5.0",
   "AndroidPermissions": [

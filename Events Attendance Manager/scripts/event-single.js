@@ -17,7 +17,8 @@
                 dataItem.expiredtxt = dataItem.expired ? "SCADUTO" : "IN PROGRAMMA";
                 dataItem.expiredcss = dataItem.expired ? "#ff0000" : "#00ff00";
                 dataItem.subenabled = !dataItem.expired;
-                dataItem.sbandieratori = dataItem.b_rossi + dataItem.b_blu;
+                dataItem.maptext = 'geo:0,0?q=' + dataItem.ritrovo.split(" ").join("+");
+                dataItem.editlink = 'views/event-insert.html?eventid='+dataItem.id_esi;
                 
                 that.set("item", dataItem);
             });
@@ -26,7 +27,7 @@
         changeSubscription: function(e) {
             var eventUIID = app.eventsSingleService.viewModel.event_id,
             userUIID = app.loginService.viewModel.UIID,
-            jsonUrlToLoad = "http://www.bandieraidegliuffizi.it/api/events/set.php?u="+userUIID+"&e="+eventUIID+"&a="+e.checked,
+            jsonUrlToLoad = "http://www.bandieraidegliuffizi.it/api/exhibits/put.php?u="+userUIID+"&e="+eventUIID+"&a="+e.checked,
             dataSource,
             item;
             
@@ -47,6 +48,11 @@
 
                 	return;
             	}
+                if(e.checked)
+                	app.loginService.viewModel.set("parpro", app.loginService.viewModel.get("parpro")+1);
+                else
+                    app.loginService.viewModel.set("parpro", app.loginService.viewModel.get("parpro")-1);
+                
             })   
         }
         
