@@ -1,9 +1,10 @@
 (function (global) {
     var LoginViewModel,
-        app = global.app = global.app || {};
+        app = global.app;
 
     LoginViewModel = kendo.data.ObservableObject.extend({
         isLoggedIn: false,
+        isAdmin: false,
         UUID:"",
         username: "",
         userfullname: "",
@@ -71,8 +72,10 @@
                     
                     $('#hide-menu').css("display","table");
                     
-                    if(authitem.admin)
+                    if(authitem.admin) {
 						$(".hiding-button").css("display","table-cell");
+                        that.set("isAdmin", true);
+                    }
 
             	} else {
                     navigator.notification.alert("Le credenziali inserite non sono corrette!",

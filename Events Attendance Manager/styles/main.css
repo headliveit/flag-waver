@@ -405,3 +405,10 @@ body, html {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2), 0px 2px 3px rgba(0, 0, 0, 0.05);
 }
 .w-item-template .km-listview-link:after {top:90%;margin-top:0;}
+.event-single-title .km-icon:after {
+    width: auto;
+    float:right;
+    border:1px solid #4C5356;
+    padding: 6px 5px;
+    border-radius:10%;
+}

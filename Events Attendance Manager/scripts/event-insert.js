@@ -1,6 +1,12 @@
 (function (global) {
     var EventInsertViewModel,
-        app = global.app = global.app || {};
+        app = global.app;
+    
+    if(!app.eventsService) {
+        app.eventsService = {
+            viewModel: new global.EventViewModel()
+        };
+    }
 
     EventInsertViewModel = kendo.data.ObservableObject.extend({
         event_id: false,
@@ -8,25 +14,26 @@
         dataSource: app.eventsService.viewModel.eventDataSource,
         blank: {
             id_esi: 0,
-            altri: "",
-            b_blu: "",
-            b_rossi: "",
-            data_db: new Date,
+            altri: null,
+            b_blu: null,
+            b_rossi: null,
+            conclusa: null,
+            data_db: null,
             descr: "",
-            email: "",
+            email: null,
             gg_durata: 1,
             luogo: "",
-            mezzo: "Proprio",
+            mezzo: "",
             nazione: "It",
-            note: "",
-            ora_conv: "",
-            ora_esib: "",
+            note: null,
+            ora_conv: null,
+            ora_esib: null,
             prov: "",
-            referente: "",
-            rendita: "",
+            referente: null,
+            rendita: null,
             ritrovo: "",
-            tamburi: "",
-            tel: "",
+            tamburi: null,
+            tel: null,
             id_tip: "1",
             expired: false,
             subscribed: false,
@@ -39,15 +46,13 @@
             if(params && params.eventid) {
                 that.set("event_id", params.eventid);
 
-                that.dataSource.fetch(function() {
-                    var dataItem = that.dataSource.get(that.event_id);
-                    dataItem.expiredtxt = dataItem.expired ? "SCADUTO" : "IN PROGRAMMA";
-                    dataItem.expiredcss = dataItem.expired ? "#ff0000" : "#00ff00";
-                    dataItem.subenabled = !dataItem.expired;
-                    dataItem.maptext = 'geo:0,0?q=' + dataItem.ritrovo.split(" ").join("+");
-                    
-                    that.set("item", dataItem);
-                });
+                var dataItem = that.dataSource.get(that.event_id);
+                dataItem.expiredtxt = dataItem.expired ? "SCADUTO" : "IN PROGRAMMA";
+                dataItem.expiredcss = dataItem.expired ? "#ff0000" : "#00ff00";
+                dataItem.subenabled = !dataItem.expired;
+                dataItem.maptext = 'geo:0,0?q=' + dataItem.ritrovo.split(" ").join("+");
+
+                that.set("item", dataItem);
             } else {
                 that.set("item", that.get("blank"));
             }
@@ -78,31 +83,19 @@
                         url: jsonUrlToLoad,
                         data: { "data": JSON.stringify(item) },
                         success: function(e) {
+                            that.dataSource.read();
+                            app.navigate("views/events.html");
                         },
                         dataType: 'json'  
                     });
                 } else {
-                    /*taSource = new kendo.data.DataSource({
-                        transport: {
-                            read: {
-                                url: jsonUrlToLoad,
-                                type: "POST", 
-                                dataType: "json"
-                            },
-                            parameterMap: function() {    
-                                    return { 
-                                        "data": JSON.stringify(item)
-                                    };     
-                            }
-                        }
-                    }).read();*/
-                    
                     $.ajax({
                     	type: "POST",
                         url: jsonUrlToLoad,
                         data: { "data": JSON.stringify(item) },
                         success: function(e) {
-                            that.dataSource.add(e[0]);
+                            that.dataSource.read();
+                            app.navigate("views/events.html");
                         },
                         dataType: 'json'  
                     });

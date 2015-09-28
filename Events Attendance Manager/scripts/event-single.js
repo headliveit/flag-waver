@@ -1,27 +1,28 @@
 (function (global) {
     var EventSingleViewModel,
-        app = global.app = global.app || {};
+        app = global.app;
 
     EventSingleViewModel = kendo.data.ObservableObject.extend({
         event_id: false,
         item: false,
+        isAdmin: app.loginService.viewModel.isAdmin,
         
         setValue: function(params) {
         	var that = this;
             that.set("event_id", params.eventid);
             
             var dataSource = app.eventsService.viewModel.eventDataSource;
+            var dataItem = dataSource.get(that.event_id);
             
-            dataSource.fetch(function() {
-              	var dataItem = dataSource.get(that.event_id);
-                dataItem.expiredtxt = dataItem.expired ? "SCADUTO" : "IN PROGRAMMA";
-                dataItem.expiredcss = dataItem.expired ? "#ff0000" : "#00ff00";
-                dataItem.subenabled = !dataItem.expired;
-                dataItem.maptext = 'geo:0,0?q=' + dataItem.ritrovo.split(" ").join("+");
-                dataItem.editlink = 'views/event-insert.html?eventid='+dataItem.id_esi;
-                
-                that.set("item", dataItem);
-            });
+            dataItem.expiredtxt = dataItem.expired ? "SCADUTO" : "IN PROGRAMMA";
+            dataItem.expiredcss = dataItem.expired ? "#ff0000" : "#00ff00";
+            dataItem.subenabled = !dataItem.expired;
+            dataItem.maptext = 'geo:0,0?q=' + dataItem.ritrovo.split(" ").join("+");
+            dataItem.editlink = 'views/event-insert.html?eventid='+dataItem.id_esi;
+            
+            that.set("item", dataItem);
+            
+            
         },
         
         changeSubscription: function(e) {

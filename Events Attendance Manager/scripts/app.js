@@ -1,10 +1,5 @@
-
 (function (global) {
-    var app;
-    
-    document.addEventListener('deviceready', function () {  
-        navigator.splashscreen.hide();
-        app = new kendo.mobile.Application(document.body, {
+    	global.app = new kendo.mobile.Application(document.body, {
         
             // you can change the default transition (slide, zoom or fade)
             transition: 'slide',
@@ -16,6 +11,9 @@
             // the application needs to know which view to load first
             initial: 'views/login.html'
       });
-
+    
+    document.addEventListener('deviceready', function () {  
+        navigator.splashscreen.hide();
     }, false);
-}());
+    
+}(window));

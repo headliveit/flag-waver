@@ -1,8 +1,7 @@
 (function (global) {
-    var EventViewModel,
-        app = global.app = global.app || {};
+    var app = global.app;
 
-    EventViewModel = kendo.data.ObservableObject.extend({
+    global.EventViewModel = kendo.data.ObservableObject.extend({
         eventDataSource: null,
 
         init: function () {
@@ -44,8 +43,4 @@
             }
         }
     });
-
-    app.eventsService = {
-        viewModel: new EventViewModel()
-    };
 })(window);
