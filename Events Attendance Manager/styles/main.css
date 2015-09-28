@@ -157,7 +157,10 @@ body, html {
     width: 87%;
 }
 .w-item-template .w-temp > span:first-of-type {
-    color: #bd0006;
+    color: #bd1717;
+}
+.w-item-template.km-state-active .w-temp > span:first-of-type {
+    color: #fff;
 }
 #tabstrip-events .km-list>li {
     padding: 1.2em .4em;
@@ -198,7 +201,7 @@ body, html {
 .nodeco {
     text-decoration:none;
     font-size:1.5em !important;
-    color: #10C4B2 !important;
+    color: #bf1717 !important;
 }
 /* DEVICE SPECIFIC STYLES*/
 #skin-change {
@@ -378,7 +381,7 @@ body, html {
     padding: 1.2em .4em;
 }
 .w-item-template.cs-notexpired {
-      background-color: rgba(88,88,86,.8);
+      background-color: rgba(88,88,86,.5);
   		color: #fff;
 }
 .w-item-template:before, .w-item-template:after, .full:before, .full:after {

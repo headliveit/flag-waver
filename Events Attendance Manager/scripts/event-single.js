@@ -15,9 +15,10 @@
             var dataItem = dataSource.get(that.event_id);
             
             dataItem.expiredtxt = dataItem.expired ? "SCADUTO" : "IN PROGRAMMA";
-            dataItem.expiredcss = dataItem.expired ? "#ff0000" : "#00ff00";
+            dataItem.expiredcss = dataItem.expired ? "#bd1717" : "#339933";
             dataItem.subenabled = !dataItem.expired;
             dataItem.maptext = 'geo:0,0?q=' + dataItem.ritrovo.split(" ").join("+");
+            that.set('isAdmin', !dataItem.expired && that.isAdmin);
             dataItem.editlink = 'views/event-insert.html?eventid='+dataItem.id_esi;
             
             that.set("item", dataItem);

@@ -26,9 +26,12 @@
   "AndroidHardwareAcceleration": "False",
   "iOSStatusBarStyle": "Default",
   "Framework": "Cordova",
-  "WP8TileTitle": "",
-  "WP8Publisher": "",
-  "WP8Capabilities": [],
+  "WP8TileTitle": "Bandierai degli Uffizi",
+  "WP8Publisher": "Headlive srl",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING",
+    "ID_CAP_WEBBROWSERCOMPONENT"
+  ],
   "WP8Requirements": [],
   "WP8PublisherID": "{a1a74808-1cf4-4aad-930a-be468c454562}",
   "WP8ProductID": "{de06bece-f800-4a9b-9946-b78d7afd4efc}",
