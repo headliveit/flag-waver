@@ -6,8 +6,8 @@
   "DisplayName": "Bandierai degli Uffizi - Uscite",
   "Author": "Bandierai degli Uffizi",
   "Description": "Applicazione  per confermare la presenza alle uscite dei bandierai degli Uffizi",
-  "BundleVersion": "1.1",
-  "AndroidVersionCode": "1",
+  "BundleVersion": "1.2",
+  "AndroidVersionCode": "2",
   "iOSDeviceFamily": [
     "1",
     "2"
@@ -36,8 +36,8 @@
   "WP8PublisherID": "{a1a74808-1cf4-4aad-930a-be468c454562}",
   "WP8ProductID": "{de06bece-f800-4a9b-9946-b78d7afd4efc}",
   "WPSdk": "8.0",
-  "WP8PackageIdentityName": "1234Telerik.EventsAttendanceManager",
-  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8PackageIdentityName": "Headlivesrl.BandieraidegliUffizi",
+  "WP8WindowsPublisherName": "CN=56FC99B0-C580-4C86-ACD7-D2641390B5EC",
   "WP8SupportedResolutions": [
     "ID_RESOLUTION_WVGA",
     "ID_RESOLUTION_WXGA",

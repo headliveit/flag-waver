@@ -73,10 +73,10 @@
                     $('#hide-menu').css("display","table");
                     
                     if(authitem.admin) {
+                        console.log('isAdmin');
 						$(".hiding-button").css("display","table-cell");
                         that.set("isAdmin", true);
                     }
-
             	} else {
                     navigator.notification.alert("Le credenziali inserite non sono corrette!",
                     	function () { }, "Login fallita", 'OK');
